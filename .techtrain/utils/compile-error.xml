@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite>
+    <properties/>
+    <testcase name="test">
+        <failure message="ビルドエラーが発生しました。Android Studioで正しくコンパイルできているかどうか確認してください。" />
+    </testcase>
+</testsuite>

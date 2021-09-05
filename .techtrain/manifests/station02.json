@@ -1,0 +1,11 @@
+{
+    "name": "Station 02",
+    "id": 112,
+    "prepare": [],
+    "tests": [
+        {
+            "type": "jest",
+            "specFile": "./.techtrain/tests/s2.test.js"
+        }
+    ]
+}

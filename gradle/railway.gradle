@@ -1,0 +1,21 @@
+project.gradle.buildFinished { BuildResult buildResult ->
+    if (buildResult.getFailure() == null) {
+        def taskRequests = gradle.startParameter.taskRequests
+        if (taskRequests.size() <= 0) {
+            return
+        }
+        def taskRequest = taskRequests[0]
+        if (taskRequest.args.size() == 0 || taskRequest.args[0] == "help") {
+            createRailwayFile("load_completed.txt", "Hello Railway Android!\nPlease commit this file as is.")
+        } else if (taskRequest.args[0] == ":app:assembleDebug") {
+            createRailwayFile("build_and_run_completed.txt", "Your first app is installed to the device!\nPlease commit this file as is.")
+        }
+    }
+}
+
+void createRailwayFile(String fileName, String text) {
+    def railwayDir = new java.io.File(rootDir, ".railway")
+    railwayDir.mkdirs()
+    def loadCompletedFile = new java.io.File(railwayDir, fileName)
+    loadCompletedFile.write(text)
+}

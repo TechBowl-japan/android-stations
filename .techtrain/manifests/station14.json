@@ -1,0 +1,21 @@
+{
+    "name": "Station 14",
+    "id": 124,
+    "prepare": [
+        {
+            "command": "yarn run clean-test-result"
+        }
+    ],
+    "tests": [
+        {
+            "type": "junit-compat",
+            "command": "yarn",
+            "args": [
+                "run",
+                "run-unit-test",
+                "14"
+            ],
+            "reportFile": "./app/build/test-results/testDebugUnitTest/TEST-com.example.techtrain.railway.S14.xml"
+        }
+    ]
+}

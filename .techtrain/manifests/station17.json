@@ -1,0 +1,10 @@
+{
+    "name": "Station 17",
+    "id": 127,
+    "prepare": [],
+    "tests": [
+        {
+            "type": "interview"
+        }
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "name": "Station 09",
+    "id": 119,
+    "prepare": [
+        {
+            "command": "yarn run clean-test-result"
+        }
+    ],
+    "tests": [
+        {
+            "type": "junit-compat",
+            "command": "yarn",
+            "args": [
+                "run",
+                "run-unit-test",
+                "9"
+            ],
+            "reportFile": "./app/build/test-results/testDebugUnitTest/TEST-com.example.techtrain.railway.S9.xml"
+        }
+    ]
+}
