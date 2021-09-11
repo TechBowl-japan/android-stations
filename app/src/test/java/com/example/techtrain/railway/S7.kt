@@ -75,12 +75,15 @@ class S7 {
                 "ImageViewの左方向への制約が正しく設定されていません。"
             )
             assertTrue(
-                activityLayoutFile.containsOnAnyLine("app:layout_constraintTop_toBottomOf=\"@id/text\""),
+                activityLayoutFile.containsOnAnyLine("app:layout_constraintTop_toBottomOf=\"@\\+?id/text\"".toRegex()),
                 "ImageViewの上方向への制約が正しく設定されていません。"
             )
         }
         Intents.release()
     }
+
+    private fun File.containsOnAnyLine(regex: Regex): Boolean =
+        useLines { it.any { line -> line.contains(regex) } }
 
     private fun File.containsOnAnyLine(text: String): Boolean =
         useLines { it.any { line -> line.contains(text, false) } }
