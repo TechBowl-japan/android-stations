@@ -1,14 +1,25 @@
-project.gradle.buildFinished { BuildResult buildResult ->
-    if (buildResult.getFailure() == null) {
-        def taskRequests = gradle.startParameter.taskRequests
-        if (taskRequests.size() <= 0) {
-            return
-        }
-        def taskRequest = taskRequests[0]
-        if (taskRequest.args.size() == 0 || taskRequest.args[0] == "help") {
-            createRailwayFile("load_completed.txt", "Hello Railway Android!\nPlease commit this file as is.")
-        } else if (taskRequest.args[0] == ":app:assembleDebug") {
-            createRailwayFile("build_and_run_completed.txt", "Your first app is installed to the device!\nPlease commit this file as is.")
+tasks.register("notifySyncCompleted") {
+    doLast {
+        createRailwayFile("load_completed.txt", "Hello Railway Android!\nPlease commit this file as is.")
+    }
+}
+
+tasks.register("notifyRunCompleted") {
+    doLast {
+        createRailwayFile("build_and_run_completed.txt", "Your first app is installed to the device!\nPlease commit this file as is.")
+    }
+}
+
+idea.project.settings {
+    taskTriggers {
+        afterSync tasks.getByName("notifySyncCompleted")
+    }
+}
+
+subprojects {
+    tasks.configureEach { task ->
+        if (task.name == 'assembleDebug') {
+            task.finalizedBy rootProject.tasks.getByName("notifyRunCompleted")
         }
     }
 }
