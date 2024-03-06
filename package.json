@@ -5,9 +5,6 @@
     "repository": "https://github.com/SuguruOoki/android-stations.git",
     "author": "Hikaru Terazono (3c1u) <3c1u@tohkani.com>",
     "license": "MIT",
-    "engines": {
-        "node": "14.x||16.x"
-    },
     "dependencies": {
         "@techtrain/cli-railway": "0.1.6"
     },
