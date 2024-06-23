@@ -36,3 +36,4 @@ Railway を進めるには、**Git**、**node**、**yarn**, **Java** のイン�
 ```powershell
 scoop install git nodejs-lts yarn adopt11-hotspot
 ```
+稀に[adopt11-hotspotが失敗する事例](https://github.com/TechTrain-Community/RailwayForum/discussions/605)が確認されています。その場合、[手動インストール](https://sukkiri.jp/technologies/processors/jdk/adoptopenjdk11-win_install.html)してお試ししましょう。
