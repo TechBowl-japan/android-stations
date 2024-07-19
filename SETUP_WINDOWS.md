@@ -34,6 +34,6 @@ Set-ExecutionPolicy RemoteSigned -scope CurrentUser
 Railway を進めるには、**Git**、**node**、**yarn**, **Java** のインストールが必要です。管理者権限で起動した PowerShell に以下のコマンドを入力して、Scoop を経由してインストールしましょう。
 
 ```powershell
-scoop install git nodejs-lts yarn adopt11-hotspot
+scoop install git nodejs-lts yarn adopt21-hotspot
 ```
 稀に[adopt11-hotspotが失敗する事例](https://github.com/TechTrain-Community/RailwayForum/discussions/605)が確認されています。その場合、[手動インストール](https://sukkiri.jp/technologies/processors/jdk/adoptopenjdk11-win_install.html)してお試ししましょう。
