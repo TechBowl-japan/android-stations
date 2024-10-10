@@ -17,5 +17,5 @@ Terminal.app を開き、次のコマンドを実行してください。(すで
 Railway を進めるには、**Git**、**node**、**yarn**, **Java** のインストールが必要です。 Terminal.app を開き、次のコマンドを実行してください。
 
 ```shell
-brew install node@14 yarn openjdk@11
+brew install node yarn openjdk
 ```
