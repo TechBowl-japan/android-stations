@@ -5,12 +5,12 @@ import android.app.Application
 import android.content.pm.PackageManager
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.TextView
 import androidx.core.view.children
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.example.techtrain.railway.android.MainActivity
+import com.google.android.material.textview.MaterialTextView
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.fail
@@ -95,7 +95,7 @@ class S15 {
                 val contentView = it.findViewById<ViewGroup>(android.R.id.content)
                 val rootView = contentView.getChildAt(0) as? ViewGroup
                 assertNotNull(rootView, "root viewが見つかりません。")
-                val textViews = rootView.children.toList().filterIsInstance<TextView>()
+                val textViews = rootView.children.toList().filterIsInstance<MaterialTextView>()
                 assertEquals(
                     1,
                     textViews.size,

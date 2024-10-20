@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.example.techtrain.railway.android.MainActivity
+import com.google.android.material.textview.MaterialTextView
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
 import org.junit.Rule
@@ -76,7 +77,7 @@ class S17 {
                     assertNotNull(itemView,"BookItemViewが見つかりません。")
                     assertEquals("BookItemView", itemView::class.simpleName, "BookItemViewのタイプが一致しません。")
 
-                    val textViews = (itemView as ViewGroup).children.toList().filterIsInstance<TextView>()
+                    val textViews = (itemView as ViewGroup).children.toList().filterIsInstance<MaterialTextView>()
 
                     assertTrue(2 < recyclerViews.size, "TextViewは少なくとも、titleとdetail２個が必要")
                     assertTrue(textViews.map { it.text }.toSet().containsAll(setOf(titleResults[i], detailResults[i])), "${i}番めのtitleとdetailがデータと一致しない")

@@ -3,7 +3,6 @@ package com.example.techtrain.railway
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
 import androidx.core.view.children
 import androidx.test.espresso.intent.Intents
 import androidx.test.ext.junit.rules.ActivityScenarioRule
@@ -34,7 +33,7 @@ class S10 {
             val contentView = it.findViewById<ViewGroup>(android.R.id.content)
             val rootView = contentView.getChildAt(0) as? ViewGroup
             assertNotNull(rootView, "root viewが見つかりません。")
-            val textViews = rootView.children.toList().filterIsInstance<TextView>()
+            val textViews = rootView.children.toList().filterIsInstance<MaterialTextView>()
             assertEquals(1, textViews.size, "TextViewが存在しないか、複数のTextViewがレイアウト内に存在しています。")
             val editTexts = rootView.children.toList().filterIsInstance<EditText>()
             assertEquals(1, editTexts.size, "EditTextが存在しないか、複数のEditTextがレイアウト内に存在しています。")
