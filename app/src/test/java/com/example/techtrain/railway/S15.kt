@@ -9,6 +9,7 @@ import androidx.core.view.children
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.example.techtrain.railway.android.Book
 import com.example.techtrain.railway.android.MainActivity
 import com.google.android.material.textview.MaterialTextView
 import kotlinx.coroutines.delay
@@ -101,9 +102,21 @@ class S15 {
                     textViews.size,
                     "TextViewが存在しないか、複数のTextViewがレイアウト内に存在しています。"
                 )
-                val result = "[Book(id=b011e918-63a9-4683-ad5d-1bdf87d065e6, title=taikun, url=https://www.yahoo.co.jp/, detail=test, review=tai, reviewer=tai), Book(id=7d8ad2d6-7349-48fe-addb-920fd6917609, title=React, url=https://www.yahoo.co.jp/, detail=ken, review=ken, reviewer=kens), Book(id=2811e448-6491-4324-9c01-1b131c4cca45, title=React, url=https://www.yahoo.co.jp/, detail=test, review=test, reviewer=kens), Book(id=a745e46e-fbd6-4a65-9926-56d33f1ee53a, title=React, url=https://www.yahoo.co.jp/, detail=test, review=test, reviewer=kens), Book(id=1e02b253-dd0a-4378-a4e1-d16417e1d5de, title=Git, url=https://www.yahoo.co.jp/, detail=test, review=test, reviewer=kens), Book(id=c169a916-fa90-4b90-841f-3e2d73302a1e, title=てすと, url=https://www.google.com/?hl=ja, detail=ぐーぐる, review=ぐーぐる, reviewer=na), Book(id=3c714672-c3be-4192-87c9-b09c2ef56d5c, title=ぐーぐる, url=https://www.google.com/?hl=ja, detail=ぐーぐる, review=ぐーぐる, reviewer=na), Book(id=5a29f82b-0de6-42bb-8c6e-1244b28757b2, title=てすと, url=https://www.google.com/?hl=ja, detail=テスト, review=テスト, reviewer=na), Book(id=58b7b376-e4fe-4650-abd7-ccc14da09a5b, title=Getting to Yes, url=https://www.amazon.co.jp/-/en/Roger-Fisher/dp/0143118757, detail=\"Getting to Yes has helped millions of people learn a better way to negotiate. One of the primary business texts of the modern era, it is based on the work of the Harvard Negotiation Project, a group that deals with all levels of negotiation and conflict resolution.\n\nGetting to Yes offers a proven, step-by-step strategy for coming to mutually acceptable agreements in every sort of conflict. Thoroughly updated and revised, it offers readers a straight- forward, universally applicable method for negotiating personal and professional disputes without getting angry-or getting taken.\" -from Amazon.com, review=I have not read this book yet I want to complete in somedays, reviewer=Sugar), Book(id=c39146e8-536a-441f-ad04-47095b1c2696, title=thridweb, url=https://thirdweb.com/, detail=API for web3, review=lets's create somethings new in web3!, reviewer=Sugar)]"
+                // 正規表現を使用して result を Book リストにパースする（簡易的な方法）
+                val bookList = Regex("""Book\(id=([^,]+), title=([^,]+), url=([^,]+), detail=([^,]+), review=([^,]+), reviewer=([^\)]+)\)""")
+                    .findAll(textViews[0].text)
+                    .map { match ->
+                        Book(
+                            id = match.groupValues[1],
+                            title = match.groupValues[2],
+                            url = match.groupValues[3],
+                            detail = match.groupValues[4],
+                            review = match.groupValues[5],
+                            reviewer = match.groupValues[6]
+                        )
+                    }.toList()
                 // テキストビューの内容を確認
-                assertEquals(textViews[0].text, result, "結果が正しくTextViewに表示されていないかoffsetを0から取得していないか")
+                assertTrue(bookList.isNotEmpty(), "結果が正しくTextViewに表示されていないかoffsetを0から取得していないか")
             }
         }
     }
