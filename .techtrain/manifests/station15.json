@@ -1,10 +1,21 @@
 {
     "name": "Station 15",
     "id": 125,
-    "prepare": [],
+    "prepare": [
+        {
+            "command": "yarn run clean-test-result"
+        }
+    ],
     "tests": [
         {
-            "type": "interview"
+            "type": "junit-compat",
+            "command": "yarn",
+            "args": [
+                "run",
+                "run-unit-test",
+                "15"
+            ],
+            "reportFile": "./app/build/test-results/testDebugUnitTest/TEST-com.example.techtrain.railway.S15.xml"
         }
     ]
 }
