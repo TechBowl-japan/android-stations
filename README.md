@@ -1,57 +1,53 @@
-# TechTrain Android Railway について
+# 環境構築
 
-Railway では、 Git で自分が取り組んだ内容を記録(コミット)するときに、挑戦中の Station をクリアしているかどうかを自動でテストします。
-この際、挑戦中の Station の内容に即した実装になっているかを最低限のラインとして確認します。
-テストが通れば Station クリアとなります。 クリア後、TechTrain の画面に戻り、クリアになっているかを確認してみてください。
+1. AndroidStudio
+2. Java（v11以降）
+3. Git
+4. Node.js（v20.0.0以降）
+5. Yarn (v1)
 
-## 初期設定
-****
-### 必要なソフトウェア
+上記をインストールする必要があります。
 
-|  ツール名   |              バージョン              |
-|:-------:|:-------------------------------:|
-|  Java   |             11.*以降              |
-| Node.js | v20.0.0以降（20.15.0 (LTS)を推奨します。） |
-|  Yarn   |              1.*系               |
+Git、Node、Yarn のインストール方法やバージョンの確認については、[Railway 準備編](https://www.notion.so/techbowl/Railway-ceba695d5014460e9733c2a46318cdec) をご確認ください。※ 開発エディタ（Visual Studio Code）と、GitHub Codespaces についての資料はスキップしてください。
 
-上記 3 つをインストールする必要があります。
+その他リポジトリの更新の仕方や、トラブルシューティングについても上記の Railway 準備編にございます。
+何かあった際は、まずそちらを確認しましょう。
 
-### ソフトウェアのインストール
+## 1. AndroidStudio のインストール
+[https://developer.android.com/studio](https://developer.android.com/studio) よりご自身の PC にあった AndroidStudio をインストールしてください。
 
-Mac におけるソフトウェアのインストールのやり方は [こちら](./SETUP_MAC.md) を参考にしてください。
+## 2. Java のインストール
 
-Windows におけるソフトウェアのインストールのやり方は [こちら](./SETUP_WINDOWS.md) を参考にしてください。
-
-### リポジトリのフォークとクローン
-
-#### `android-stations`リポジトリのフォーク
-
-https://github.com/TechBowl-japan/android-stations
-
-上記のページにアクセスし、右上の `Fork` より自分のアカウントへ `android-stations` リポジトリをクローンします。
-フォークが完了すると、自動的に `https://github.com/{自分のユーザー名}/android-stations` へ遷移します。
-
-#### `android-stations`リポジトリのクローン
-
-PC上へフォークしたリポジトリをクローンします。
-Terminal.app(Mac)/PowerShell(Windows) を開き、クローンするフォルダへ移動したら以下のコマンドを実行します。
+### 2-1 macOS の場合
+ターミナルを起動し、以下のコマンドを実行してください。（Homebrew を経由してインストールする。）
 
 ```shell
-git clone https://github.com/{ユーザー名}/android-stations.git
+brew install node yarn openjdk
 ```
 
-### yarn によるセットアップ
+### 2-2 Windows の場合
+管理者権限で PowerShell を起動し、以下のコマンドを実行してください。（Scoop を経由してインストールする。）
 
-クローンしたばかりのリポジトリは必要なファイルがダウンロードされていないの状態なので、それらをダウンロードする必要があります。
-10 分程度掛かることもあるため、気長に待ちましょう。上から順番に**1行ずつ**コマンドを実行してください。
-
-```shell
-cd android-stations
-yarn install
+```powershell
+scoop install git nodejs-lts yarn adopt21-hotspot
 ```
 
-最後のコマンドを実行中に TechTrain へのログインを求められます。画面の指示に従い入力を進めてください。
+稀に [adopt11-hotspotが失敗する事例](https://github.com/TechTrain-Community/RailwayForum/discussions/605) が確認されています。
+その場合は [手動インストール](https://sukkiri.jp/technologies/processors/jdk/adoptopenjdk11-win_install.html) を試してみてください。
 
-## トラブルシューティング
+# トラブルシューティング
 
-何かしら問題が起きた場合はまず [こちら](./TROUBLESHOOTING.md) を確認してください。
+## Android Studio のインストール時に HAXM のインストールに失敗する場合
+
+Windows かつエミュレーターを使用する方が対象になります。(Mac を使う方、実機を使用してアプリの動作を確認する方は HAXM のインストールに失敗していても問題ありません)
+
+Android Studio のセットアップ中に以下のようなエラーが表示された場合は Windows 側で仮想化支援機能を有効にする必要があります。
+
+```
+This computer does not support Intel Virtualization Technology (VT-x) or it is being exclusively used by Hyper-V. HAXM cannot be installed.
+Please ensure Hyper-V is disabled in Windows Features, or refer to the Intel HAXM documentation for more information.
+```
+
+以下の記事を参考に、Hyper-V を有効化してください。
+
+https://docs.microsoft.com/ja-jp/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v
