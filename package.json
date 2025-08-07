@@ -14,7 +14,7 @@
     },
     "scripts": {
         "login:techtrain": "techtrain-railway login",
-        "hook:pre-commit": "command -v winpty >/dev/null 2>&1 && test -t 1 && exec < /dev/tty; techtrain-railway hook:pre-commit",
+        "hook:pre-commit": "techtrain-railway hook:pre-commit",
         "hook:update": "simple-git-hooks",
         "postinstall": "yarn hook:update && yarn login:techtrain",
         "clean-test-result": "node .techtrain/utils/clean-test-result.js",
