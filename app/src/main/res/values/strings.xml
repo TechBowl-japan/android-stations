@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">Railway</string>
-    <string name="hello_main_activity">Hello MainActivity </string>
+    <string name="hello_main_activity">Hello, MainActivity</string>
 </resources>
