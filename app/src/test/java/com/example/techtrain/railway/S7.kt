@@ -35,7 +35,7 @@ class S7 {
             assertEquals(1, imageViews.size, "ImageViewが存在しないか、複数のImageViewがレイアウト内に存在しています。")
 
             val imageView = imageViews[0]
-            val colorDrawable = imageView.drawable as? ColorDrawable
+            val colorDrawable = imageView.background as? ColorDrawable
             assertNotNull(colorDrawable, "ImageViewの色が設定されていません。")
             assertEquals(
                 -16777216 /* 0xFF000000 */,
