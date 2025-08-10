@@ -22,12 +22,12 @@ class S14 {
             context.packageName,
             PackageManager.GET_PERMISSIONS
         )
-        val requestedPermissions = info.requestedPermissions.filter {
+        val requestedPermissions = info.requestedPermissions?.filter {
             it != context.packageName + ".DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
         }
         assertEquals(
             setOf(Manifest.permission.INTERNET, Manifest.permission.ACCESS_NETWORK_STATE),
-            requestedPermissions.toSet(),
+            requestedPermissions?.toSet(),
             "AndroidManifestに必要なパーミッションが書かれていないか、余分なパーミッションが書かれています。"
         )
 

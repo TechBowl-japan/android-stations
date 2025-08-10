@@ -39,7 +39,7 @@ class S15 {
             context.packageName,
             PackageManager.GET_PERMISSIONS
         )
-        assertTrue(info.requestedPermissions.toSet().containsAll(setOf(Manifest.permission.INTERNET, Manifest.permission.ACCESS_NETWORK_STATE)), "AndroidManifestに必要なパーミッションが書かれていない")
+        assertTrue(info.requestedPermissions?.toSet()!!.containsAll(setOf(Manifest.permission.INTERNET, Manifest.permission.ACCESS_NETWORK_STATE)), "AndroidManifestに必要なパーミッションが書かれていない")
 
         val retrofitClass = try {
             Class.forName("retrofit2.Retrofit")
