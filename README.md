@@ -8,7 +8,7 @@
 
 上記をインストールする必要があります。
 
-Git、Node、Yarn のインストール方法やバージョンの確認については、[Railway 準備編](https://www.notion.so/techbowl/Railway-ceba695d5014460e9733c2a46318cdec) をご確認ください。※ 開発エディタ（Visual Studio Code）と、GitHub Codespaces についての資料はスキップしてください。
+Git、Node、Yarn のインストール方法やバージョンの確認については、[Railway 準備編](https://techbowl.notion.site/Railway-ceba695d5014460e9733c2a46318cdec) をご確認ください。※ 開発エディタ（Visual Studio Code）と、GitHub Codespaces についての資料はスキップしてください。
 
 その他リポジトリの更新の仕方や、トラブルシューティングについても上記の Railway 準備編にございます。
 何かあった際は、まずそちらを確認しましょう。
