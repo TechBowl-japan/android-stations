@@ -6,7 +6,7 @@
     "author": "Hikaru Terazono (3c1u) <3c1u@tohkani.com>",
     "license": "MIT",
     "dependencies": {
-        "@techtrain/cli-railway": "0.2.3"
+        "@techtrain/cli-railway": "^0.2.14"
     },
     "devDependencies": {
         "jest": "^27.0.6",
